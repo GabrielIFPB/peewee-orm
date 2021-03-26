@@ -3,6 +3,14 @@
 Peewee é um ORM simples e pequeno. Possui poucos (mas expressivos) conceitos, tornando-o fácil de aprender
 e intuitivo de usar.
 
+* Licença MIT
+* Versão atual: 3.14.4
+* 11 anos de história (22/12/2010)
+---
+* a small, expressive ORM
+* python 2.7+ and 3.4+ (developed with 3.6)
+* supports sqlite, mysql, postgresql and cockroachdb
+
 > Mapeamento Objeto Relacional (ORM) é uma técnica de acessar um banco de dados relacional a partir
 > de uma linguagem orientada a objetos. É uma abstração da API do banco de dados Python.
 
@@ -18,7 +26,7 @@ O Peewee pode ser usado com praticamente qualquer framework ‘web’ (Embora us
 complicado devido ao seu acoplamento ORM embutido) ou sem um framework ‘web’. No último caso, o Peewee é bom para
 extrair dados de um banco de dados relacional em um script ou bloco de notas Jupyter.
 
-Qualquer um dos back-ends de banco de dados relacionais comuns, como PostgreSQL, MySQL ou SQLite, são suportados, 
+Qualquer um dos back-ends de banco de dados relacionais comuns, como PostgreSQL, MySQL, CockroachDB e SQLite, são suportados, 
 embora um ‘driver’ de banco de dados ainda seja necessário.
 
 ## Peewee field types
@@ -43,6 +51,15 @@ PrimaryKeyField | integer  | serial     | integer
 ForeignKeyField | integer  | integer    | integer
 DateField       | date     | date       | date
 TimeField       | time     | time       | time
+
+### Quando dev optar pelo peewee
+
+- MVCs
+- Microsserviços
+- Projetos pequenos
+- Quando você precisar de simplicidade
+- O SQLAlchemy é muito grande
+- FAAS
 
 ### Peewee model definition
 
@@ -124,9 +141,34 @@ note1.save()
 ```
 Criamos e salvamos uma nova instância.
 
+# Projeto
+
+O projeto foi feito com Python 3.8.
+
+O objetivo é criar um sistema de notas, cada pessoa vai poder criar um grupo de notas.
+
+Vamos precisar criar 3 tabelas:
+- Pessoa
+- Grupo
+- Notas
+
+### Criando tabelas
+
+Existem 3 formas de criar tabelas com Peewee.
+
+- Tabela
+    - tabela.create_table()
+- db
+    - db.create_tables([A, B, C])
+- Migração
+    - playhouse
+    - form playhouse import migrate, SchemaMigrator
+
 ## Executando projeto usando virtualenv
+
 ### Requisitos
 ___
+- download [https://www.python.org/](https://www.python.org/).
 - Download [https://pypi.org/project/virtualenv/](https://pypi.org/project/virtualenv/).
 - Instalação usando pip ```pipx install virtualenv```.
 - Verificar a versão ```virtualenv --help```.
@@ -143,7 +185,9 @@ dell@dell:~$ source venv/bin/activate
 
 ### Instalando dependência
 ___
-No repositório tem um arquivo chamado **_requirements.txt_** com todas as dependências do projeto. Para instalar execute o comando abaixo.
+- Instalar o Peewee ```pip install peewee```
+- Você também pode usar o arquivo **_requirements_**.
+- Para instalar execute o comando abaixo.
 
 ```shell
 $ pip install -r requirements.txt
