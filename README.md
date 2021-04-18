@@ -1,5 +1,7 @@
 # Peewee ORM
 
+[Wiki](https://github.com/GabrielIFPB/peewee-orm/wiki)
+
 Peewee é um ORM simples e pequeno. Possui poucos (mas expressivos) conceitos, tornando-o fácil de aprender
 e intuitivo de usar.
 

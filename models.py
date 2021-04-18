@@ -16,7 +16,7 @@ class BaseModel(Model):
 class Pessoa(BaseModel):
 
 	nome = CharField(max_length=60)
-	email = CharField(max_length=60)
+	email = CharField(max_length=60, unique=True)
 	senha = CharField(max_length=60)
 	idade = IntegerField()
 
