@@ -80,7 +80,7 @@ class Note(peewee.Model):
     class Meta:
 
         database = db
-        db_table = 'notes'
+        db_table = 'nota'
 
 
 Note.create_table()
